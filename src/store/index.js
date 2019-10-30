@@ -1,13 +1,28 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import { countReducer } from '../reducers/countReducer';
-import { inputReducer } from '../reducers/inputReducer';
+import { postsReducer } from '../reducers/postsReducer';
+
+function logger(store) {
+  return function(next) {
+    return function dispatchAndLog(action) {
+      // puedes implementar tu logica
+      console.log('dispatching', action);
+      let result = next(action);
+      console.log('next state', store.getState());
+      return result;
+    }
+  }
+}
 
 const rootReducer = combineReducers({
   countReducer,
-  inputReducer,
+  postsReducer,
 });
 
-export const store = createStore(rootReducer);
+const middlewares = applyMiddleware(logger, thunk);
+
+export const store = createStore(rootReducer, middlewares);
 
 // store = {
 //   countReducer: {

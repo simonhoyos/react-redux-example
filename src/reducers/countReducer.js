@@ -6,7 +6,6 @@ const initialState = {
 };
 
 export function countReducer(state = initialState, action) {
-  console.log({ state, action });
   switch (action.type) {
     case INCREASE:
       return {

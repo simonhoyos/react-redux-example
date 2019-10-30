@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { INCREASE, DECREASE } from './reducers/countReducer';
+import Posts from './components/Posts';
 import './App.css';
 
 function App({ count, increase, decrease }) {
@@ -9,6 +10,7 @@ function App({ count, increase, decrease }) {
       <button onClick={increase}>Increase</button>
       <span>{count}</span>
       <button onClick={decrease}>Decrease</button>
+      <Posts />
     </div>
   );
 }
