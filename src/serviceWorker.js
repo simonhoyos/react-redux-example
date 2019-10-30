@@ -133,3 +133,8 @@ export function unregister() {
     });
   }
 }
+
+// export { register, unregister };
+// import { register, unregister };
+// import * serviceWorker as  from 'path_to_file';
+// serviceWorker = { register, unregister };

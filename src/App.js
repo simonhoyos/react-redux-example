@@ -1,26 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
+import { connect } from 'react-redux';
+import { INCREASE, DECREASE } from './reducers/countReducer';
 import './App.css';
 
-function App() {
+function App({ count, increase, decrease }) {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={increase}>Increase</button>
+      <span>{count}</span>
+      <button onClick={decrease}>Decrease</button>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = ({ countReducer }) => {
+  return {
+    count: countReducer.count,
+  }
+};
+
+const mapDispatchToProps = dispatch => ({
+  increase: () => dispatch({ type: INCREASE }),
+  decrease: () => dispatch({ type: DECREASE }),
+});
+
+// const Something = connect(mapStateToProps, mapDispatchToProps);
+// const Component = Something(App);
+// <Component />
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+
+// HOC o HOF = High Order Comoponent o Function
+// function connect(mapStateToProps = {}, mapDispatchToProps = {}) {
+//   la funcionalidad que queria reutilizar
+
+//   return function Something(Component) {
+//     return (
+//       <Component {...mapStateToProps} {...mapDispatchToProps} >
+//         {children}
+//       </Component>
+//     )
+//   }
+// }
