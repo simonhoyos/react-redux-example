@@ -13,13 +13,13 @@ function Posts({ getPosts, postPosts, posts }) {
   // }
 
   return (
-    <div className="posts">
+    <ul className="posts">
       {posts && posts.length > 0 && posts.map(({ id, title }) => (
-        <div key={id}>
+        <li key={id}>
           <h2>{title}</h2>
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }
 

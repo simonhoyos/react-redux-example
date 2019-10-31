@@ -1,7 +1,25 @@
 export const INCREASE = 'INCREASE';
 export const DECREASE = 'DECREASE';
 
-const initialState = {
+export function increase() {
+  return function(dispatch) {
+    return dispatch({
+      type: INCREASE,
+    });
+  }
+}
+
+export function decrease() {
+// export function decrease(count) {
+  return function(dispatch) {
+    return dispatch({
+      type: DECREASE,
+      // payload: count
+    });
+  }
+}
+
+export const initialState = {
   count: 0,
 };
 
