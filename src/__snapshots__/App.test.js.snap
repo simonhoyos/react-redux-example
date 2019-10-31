@@ -1,3 +1,73 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders without crashing 1`] = `ShallowWrapper {}`;
+exports[`renders without crashing 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(App)
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+  >
+    <App
+      count={0}
+      decrease={[Function]}
+      increase={[Function]}
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+    >
+      <div
+        className="App"
+      >
+        <button
+          onClick={[Function]}
+        >
+          Decrease
+        </button>
+        <span>
+          0
+        </span>
+        <button
+          onClick={[Function]}
+        >
+          Increase
+        </button>
+        <Connect(Posts)>
+          <Posts
+            getPosts={[Function]}
+            posts={Array []}
+          >
+            <ul
+              className="posts"
+            />
+          </Posts>
+        </Connect(Posts)>
+      </div>
+    </App>
+  </Connect(App)>
+</Provider>
+`;
